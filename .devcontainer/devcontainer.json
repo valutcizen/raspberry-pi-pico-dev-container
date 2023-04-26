@@ -1,0 +1,24 @@
+//devcontainer.json
+{
+    "name": "Pi Pico",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [ "clangd" ],
+            "settings": {
+                "C_Cpp.intelliSenseEngine": "disabled",
+                "clangd.path": "/usr/bin/clangd",
+                "clangd.checkUpdates": false,
+                "clangd.restartAfterCrash": true,
+                "clangd.detectExtensionConflicts": true,
+                "clangd.arguments": ["-log=verbose", 
+                                     "-pretty", 
+                                     "--background-index", 
+                                     "--query-driver=/usr/bin/arm-none-eabi-gcc",
+                                     "--compile-commands-dir=${workspaceFolder}/build"]
+            }
+        }
+    }
+}

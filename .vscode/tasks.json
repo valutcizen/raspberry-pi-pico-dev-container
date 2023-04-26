@@ -1,0 +1,38 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "make build",
+        "type": "process",
+        "command": "make",
+        "options": {"cwd": "${workspaceFolder}/build"},
+        "group": {
+          "kind": "build",
+          "isDefault": false
+        }
+      },
+      {
+        "label": "cmake",
+        "type": "process",
+        "command": "cmake",
+        "args": ["-D", "CMAKE_EXPORT_COMPILE_COMMANDS=1", 
+            "-S", "${workspaceFolder}", 
+            "-B", "${workspaceFolder}/build"],
+        "group": {
+          "kind": "build",
+          "isDefault": false
+        }
+      },
+      {
+        "label": "cmake & make",
+        "dependsOrder": "sequence",
+        "dependsOn":[ "cmake", "make build" ],
+        "group": {
+          "kind": "build",
+          "isDefault": false
+        }
+      },
+    ]
+  }
