@@ -30,7 +30,4 @@ RUN git clone --depth 1 --branch 1.1.1 https://github.com/raspberrypi/picotool.g
     cmake .. && \
     make && \
     cp /home/picotool/build/picotool /bin/picotool && \
-    rm -rf /home/picotool
-
-# Copy the template
-COPY template /template
+    rm -rf /home/Picotool
