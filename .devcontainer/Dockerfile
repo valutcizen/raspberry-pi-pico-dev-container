@@ -12,6 +12,7 @@ RUN apk update && \
             bsd-compat-headers \
             newlib-arm-none-eabi \
             gcc-arm-none-eabi \
+            g++-arm-none-eabi \
             clang-extra-tools
 
 # Raspberry Pi Pico SDK
